@@ -1,0 +1,74 @@
+"""
+10. En una librería se venden tres tipos de artículos:
+1. libros
+2. artículos de escritorio
+3. juguetes
+De cada artículo se conocen los siguientes datos:
+• Tipo de artículo
+• Precio unitario
+• Nombre del artículo
+• Cantidad en stock de cada uno
+Desarrollar un programa que permita ingresar los artículos en existencia con los
+correspondientes datos, finalizando la entrada de los mismos con un precio igual a
+cero (0).
+Además, deberá calcular:
+a) La cantidad de artículos que hay de cada tipo
+b) Cuál es el nombre del juguete más barato
+c) Cuánto dinero hay invertido en la librería
+(Inversión = Σ cantidad * precio unitario) 
+"""
+
+
+
+
+
+#CARGA DE DATOS
+
+tipo_articulo= (input("ingrese el tipo de articulo: "))
+precio_unitario= int(input("ingrese el valor del articulo: "))
+precio_juguetes_min=float("inf")
+juguete_barato=""
+cont_libros=0
+cont_escritorio=0
+cont_juguetes=0
+precio_juguetes=0
+precio_total=0
+
+
+while precio_unitario != 0:
+    nombre_articulo= input("ingrese el nombre del artiuclo: ")
+    cant_stock= int(input("ingrese la cantidad de stock : "))
+
+    if tipo_articulo == "libros":
+        cont_libros += 1
+
+    elif tipo_articulo == "escritorio":
+        cont_escritorio += 1
+
+    elif tipo_articulo == "juguetes":
+        precio_juguetes = precio_unitario
+
+
+        cont_juguetes += 1       
+
+    if precio_unitario <  precio_juguetes_min:
+        precio_juguetes_min=precio_unitario
+        juguete_barato=nombre_articulo
+
+
+
+
+
+
+    tipo_articulo= (input("ingrese el tipo de articulo: "))
+    precio_unitario= int(input("ingrese el valor del articulo: "))
+    precio_total+= precio_unitario
+
+print("el total de articulo/s de libros es: ", cont_libros)
+print("el total de articulo/s de escritorio es: ", cont_escritorio)
+print("el total de articulo/s de juguetes es: ", cont_juguetes)    
+
+if cont_juguetes>0:
+    print("el juguete mas barato sale ", precio_juguetes_min, "y es ", juguete_barato)
+
+print("el valor total invertido es de ", precio_total + precio_juguetes)

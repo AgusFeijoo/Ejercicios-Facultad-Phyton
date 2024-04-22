@@ -1,0 +1,68 @@
+"""
+Una empresa conoce para cada empleado los siguientes datos:
+• Nombre
+• Sueldo
+• Categoría
+
+Hay 100 empleados, distribuidos en 3 categorías (1, 2 y 3).
+Diseñar un programa que permita ingresar los datos de todos los empleados y
+calcular:
+a) Total de sueldos que paga la empresa (en $)
+b) Cantidad de empleados que ganan más de $200000
+c) Cantidad de empleados que ganan menos de $500000 y cuya categoría sea
+1
+d) Nombre del empleado que gana más y cuál es su sueldo
+e) Total de sueldos (en $) de cada categoría
+
+"""
+cont_sueldos=0
+cant_sueldos=0
+cant_empleados=0
+cant_empleados_mayor=0
+cant_empleados_menor=0
+max_empleado=0
+max_sueldo=0
+cont_sueldos_1=0
+cont_sueldos_2=0
+cont_sueldos_3=0
+
+for i in range(2):
+    nombre=(input("ingresa tu nombre: "))
+    sueldo=int(input("ingresa el sueldo su sueldo: "))
+    categoria=int(input("ingresa su categoria (1,2 o 3): "))
+
+
+
+    cont_sueldos= cont_sueldos + sueldo
+    cant_sueldos= cant_sueldos + 1
+    cant_empelados=+ 1
+
+
+    if sueldo > 200000:
+        cant_empleados_mayor=cant_empelados
+
+    if sueldo < 500000 and categoria == 1:
+        cant_empleados_menor=cant_empelados
+
+    if sueldo > max_sueldo:
+        max_sueldo=sueldo
+        max_empleado=nombre
+
+    if categoria == 1:
+        cont_sueldos_1 = cont_sueldos_1 + sueldo
+
+    elif categoria==2:
+        cont_sueldos_2 = cont_sueldos_2 + sueldo
+
+    elif categoria ==3:
+        cont_sueldos_3 = cont_sueldos_3 + sueldo    
+
+
+
+print("la empresa paga un total de ", cant_sueldos," sueldos lo cuales un total de: $",cont_sueldos)
+print("hay ",cant_empleados_mayor,"empleado/s con sueldo mayor a 200000")
+print("hay ",cant_empleados_menor,"empleado/s con sueldo menor a 500000 y de la categoria 1")
+print("El empleado que mas dinero gana es", max_empleado, "y gana ", max_sueldo)
+print("El total de sueldos en $ de la categoria 1 es de: $",cont_sueldos_1)
+print("El total de sueldos en $ de la categoria 2 es de: $",cont_sueldos_2)
+print("El total de sueldos en $ de la categoria 3 es de: $",cont_sueldos_3)

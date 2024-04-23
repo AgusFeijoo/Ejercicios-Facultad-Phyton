@@ -1,0 +1,47 @@
+"""
+Una empresa liquida sueldos según la categoría de cada empleado y paga por hora
+según la siguiente tabla:
+• categoría 1: $4500
+• categoría 2: $5000
+• categoría 3: $5500
+• categoría 4: $5800
+Diseñar un programa que permita ingresar la categoría de cada empleado y las horas
+que trabajó en el mes y calcule:
+a) Calcular el sueldo bruto y el sueldo neto (descontar 17% de aportes) de cada
+empleado.
+b) Calcular el total de sueldos que paga la empresa.
+"""
+
+cat=input("ingrese la categoria del empleado: ")
+horas=int(input("Ingrese las horas que trabajo en el mes: "))
+descuento=0.17
+cont_sueldos=0
+cont_a=0
+cont_b=0
+cont_c=0
+cont_d=0
+while cat != "X":
+    if cat == "A":
+        cont_a+=1
+        sueldo= 4500
+    elif cat == "B":
+        cont_b+=1
+        sueldo= 5000
+    elif cat == "C":
+        cont_c+=1
+        sueldo= 5500
+    elif cat == "D":
+        cont_d+=1
+        sueldo = 5800
+    des=sueldo*descuento  
+    print("el sueldo bruto es de: $", horas*sueldo)
+    print("el sueldo neto es de: $", sueldo-des  )
+    cont_sueldos+=1
+    cat=input("ingrese la categoriaA del empleado: ")
+    horas=int(input("Ingrese las horas que trabajo en el mes: ")) 
+    
+print("el total de sueldos fue de: ", cont_sueldos)    
+print("hay",cont_a, "empleado/s de la clase A")   
+print("hay",cont_b, "empleado/s de la clase B") 
+print("hay",cont_c, "empleado/s de la clase C") 
+print("hay",cont_d, "empleado/s de la clase D")

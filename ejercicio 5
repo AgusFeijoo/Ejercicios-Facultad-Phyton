@@ -1,0 +1,94 @@
+"""
+Una empresa textil desea procesar sus ventas. Cada vez que una persona realiza una
+compra se le entrega una factura donde consta:
+• Nro. de factura
+• Código de artículo
+• Cantidad del artículo
+• Precio unitario
+En cada factura se registra solamente un código de artículo y los códigos de artículos
+pueden ser 1, 3, 5 y 7.
+Diseñar un programa que permita el ingreso de los datos y calcular:
+a) Total de cada factura
+b) Total general facturado
+c) Cantidad vendida (en unidades) para cada uno de los artículos
+d) Total de artículos vendidos
+e) Cantidad de facturas emitidas para cada uno de los artículos
+f) Nro. de factura con mayor valor (en $)
+g) Nro. de artículo con menor cantidad pedida (por factura, NO el total)
+h) Porcentaje de ventas (en pesos) de cada uno de los artículos sobre el total
+La entrada de datos finaliza con un número de factura igual a cero.
+
+"""
+factura=int(input("ingrese el numero de factura: "))
+articulo = int(input("ingrese el codigo de articulo: "))
+cant_art= int(input("ingrese la cant de articulos: "))
+precio= int(input("ingrese el valor del articulo: "))
+cont_facturas=0
+cont_articulos =0
+cont_art_1=0
+cont_art_3=0
+cont_art_5=0
+cont_art_7=0
+cont_fac_7=0
+cont_fac_5=0
+cont_fac_3=0
+cont_fac_1=0
+nro_factura_mayor = 0
+precio_mayor=0
+menor_cant_art=cont_art_1
+
+while articulo != 0:
+    if articulo == 1:
+        cont_art_1 += cant_art
+        cont_fac_1 += 1
+    elif articulo == 3:
+        cont_art_3 += cant_art
+        cont_fac_3 += 1
+    elif articulo == 5:
+        cont_art_5 += cant_art
+        cont_fac_5 +=1
+    elif articulo == 7:
+        cont_art_7 += cant_art
+        cont_fac_7 += 1  
+
+    if precio>precio_mayor:
+        precio_mayor = precio
+        nro_factura_mayor = factura
+    
+    if  cont_art_3 < menor_cant_art:
+        menor_cant_art =cont_art_3
+    if cont_art_5 < menor_cant_art:
+        menor_cant_art=cont_art_5
+    if cont_art_7< menor_cant_art:
+        menor_cant_art=cont_art_7    
+        
+    
+    cont_facturas+=1
+    total_art_vendidos= cont_art_1 + cont_art_3 + cont_art_5 + cont_art_7
+    total_fac= total_art_vendidos*precio 
+    
+    
+   
+   
+    factura=int(input("ingrese el numero de factura: "))
+    articulo = int(input("ingrese el codigo de articulo: "))
+    cant_art= int(input("ingrese la cant de articulos: "))
+    precio= int(input("ingrese el valor del articulo: "))
+    
+print("la cantidad vendida del articulo 1 fue de ", cont_art_1)
+print("la cantidad vendida del articulo 3 fue de ", cont_art_3)
+print("la cantidad vendida del articulo 5 fue de ", cont_art_5)
+print("la cantidad vendida del articulo 7 fue de ", cont_art_7)    
+print("el total de articulos vendidos fue de ", total_art_vendidos)
+print("el total general facturado fue de: $",  total_fac)
+print("la cantidad de facturas emitidas del articulo 1 fue de ", cont_fac_1)
+print("la cantidad de facturas emitidas del articulo 3 fue de ", cont_fac_3)
+print("la cantidad de facturas emitidas del articulo 5 fue de ", cont_fac_5)
+print("la cantidad de facturas emitidas del articulo 7 fue de ", cont_fac_7)
+print("el total de facturas fue de ", cont_facturas)
+print("la factura de mayor valor fue", nro_factura_mayor)
+print("El articulo que tenia menor cantidad de articulos fue", menor_cant_art)
+print("el porcentaje de articulos 1 fue de ", total_art_vendidos * cont_art_1 / 100 ,"%" )
+print("el porcentaje de articulos 3 fue de ", total_art_vendidos * cont_art_3 / 100 ,"%")
+print("el porcentaje de articulos 5 fue de ", total_art_vendidos * cont_art_5/ 100 ,"%")
+print("el porcentaje de articulos 7 fue de ", total_art_vendidos * cont_art_7 / 100 ,"%")

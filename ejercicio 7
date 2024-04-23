@@ -1,0 +1,73 @@
+"""
+Una empresa de mudanzas tiene 3 camiones. Cuando una persona contrata servicio,
+se lleva la boleta interna con los siguientes datos:
+• Nro. de viaje
+• Nro. de camión
+• Horas trabajadas
+• Destino (capital o interior)
+Cada camión tiene una tarifa de hora fija que es la siguiente:
+• Camión 1: 1500$
+• Camión 2: 2000$
+• Camión 3: 3000$
+Diseñar un programa que permita ingresar los datos de cada viaje y calcular:
+a) Total recaudado
+b) Cantidad de viajes realizados
+c) Cantidad de viajes de cada camión
+d) Cantidad de horas trabajadas de cada camión
+e) Cuántos viajes se hicieron al interior
+El ingreso de datos finaliza con nro. de viaje = 0
+"""
+
+nro_viaje=int(input("ingrese el numero de viaje: "))
+nro_camion=int(input("ingrese el numero del camion: "))
+horas_trabajadas=int(input("ingrese las horas trabajadas: "))
+destino=(input("ingrese el destino: "))
+cont_viajes_1=0
+cont_viajes_3=0
+cont_viajes_2=0
+cont_horas_1=0
+cont_horas_2=0
+cont_horas_3=0
+cont_viajes_int=0
+precio_1=0
+precio_2=0
+precio_3=0
+
+
+while nro_viaje != 0:
+
+    if nro_camion == 1:
+        precio_1=1500
+        cont_viajes_1+= 1
+        cont_horas_1 += horas_trabajadas
+
+    elif nro_camion == 2:
+        precio_2=2000
+        cont_viajes_2+= 1
+        cont_horas_2 += horas_trabajadas
+
+    elif nro_camion == 3:
+        precio_3=3000
+        cont_viajes_3+= 1
+        cont_horas_3 += horas_trabajadas
+
+    if destino == "interior":
+        cont_viajes_int+=1
+
+
+    cont_viajes= cont_viajes_1 + cont_viajes_2 + cont_viajes_3
+    precio_total= precio_1 + precio_2 + precio_3
+    nro_viaje=int(input("ingrese el numero de viaje: "))
+    nro_camion=int(input("ingrese el numero del camion: "))
+    horas_trabajadas=int(input("ingrese las horas trabajadas: "))
+    destino=(input("ingrese el destino: "))
+
+print("el total recaudado fue de ", precio_total)
+print("el total de viajes es de: ", cont_viajes)
+print("el total de viajes del camion 1 es de: ", cont_viajes_1)
+print("el total de viajes del camion 2 es de: ", cont_viajes_2)
+print("el total de viajes del camion 3 es de: ", cont_viajes_3)
+print("el total de horas trabajadas del camion 1 fue de: ", cont_horas_1)
+print("el total de horas trabajadas del camion 2 fue de: ", cont_horas_2)
+print("el total de horas trabajadas del camion 3 fue de: ", cont_horas_3)
+print("se hicieron un total de ",cont_viajes_int,"viajes al interior")
